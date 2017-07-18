@@ -1,0 +1,38 @@
+<resources>
+    <string name="app_name">Java Quiz</string>
+
+    <string name="question1_label">Question 1</string>
+    <string name="question2_label">Question 2</string>
+    <string name="question3_label">Question 3</string>
+    <string name="question4_label">Question 4</string>
+    <string name="question5_label">Question 5</string>
+    <string name="question6_label">Question 6</string>
+
+
+    <string name="question1">What is the size of float variable?</string>
+    <string name="question1_a">8 bit</string>
+    <string name="question1_b">16 bit</string>
+    <string name="question1_c">32 bit</string> <!--correct-->
+    <string name="question1_d">64 bit</string>
+
+    <string name="question2">Which of the following are keywords in java?</string>
+    <string name="question2_a">static</string><!--correct-->
+    <string name="question2_b">Boolean</string>
+    <string name="question2_c">void</string><!--correct-->
+    <string name="question2_d">private</string><!--correct-->
+
+    <string name="question3">What is an Interface?</string>
+    <string name="question3_a">An interface is a collection of abstract methods.</string> <!--correct-->
+    <string name="question3_b">Interface is an abstract class.</string>
+    <string name="question3_c">Interface is an concrete class.</string>
+    <string name="question3_d">None of the above.</string>
+
+    <string name="question4">Special type of method that is used to initialize the object is called:</string>
+    <!-- constructor -->
+    <string name="answer">Answer</string>
+    <string name="result_label">Result:</string>
+    <string name="check_button">Check result</string>
+    <string name="result_default_textview">Tap button below when finished</string>
+    <string name="result_your_score">Your score: %1$d/4</string>
+    <string name="question4_answer">constructor</string>
+</resources>
