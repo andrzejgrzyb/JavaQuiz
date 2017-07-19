@@ -35,4 +35,5 @@
     <string name="result_default_textview">Tap button below when finished</string>
     <string name="result_your_score">Your score: %1$d/4</string>
     <string name="question4_answer">constructor</string>
+    <string name="not_answered">Please, answer all questions</string>
 </resources>

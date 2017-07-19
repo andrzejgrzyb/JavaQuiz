@@ -159,16 +159,6 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/result_label"
-            style="@style/QuestionLabelTextViewStyle"
-            android:text="@string/result_label" />
-
-        <TextView
-            android:id="@+id/result_textview"
-            style="@style/QuestionTextViewStyle"
-            android:text="@string/result_default_textview" />
-
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"

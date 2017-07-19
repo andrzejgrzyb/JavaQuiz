@@ -2,11 +2,10 @@ package pl.com.andrzejgrzyb.javaquiz;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioGroup;
-import android.widget.TextView;
+import android.widget.Toast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,8 +20,6 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.question2_checkBox4) CheckBox question2Checkbox4;
     @BindView(R.id.question3_radiogroup) RadioGroup question3RadioGroup;
     @BindView(R.id.question4_edittext) EditText question4EditText;
-    @BindView(R.id.button) Button button;
-    @BindView(R.id.result_textview) TextView resultTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,24 +31,46 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.button)
     public void checkResults() {
         int score = 0;
-        if (question1RadioGroup.getCheckedRadioButtonId() == R.id.question1_radioButton3) {
+        boolean missingAnswer = false;
+        if (question1RadioGroup.getCheckedRadioButtonId() == -1) {
+            missingAnswer = true;
+        }
+        else if (question1RadioGroup.getCheckedRadioButtonId() == R.id.question1_radioButton3) {
             score++;
         }
-        if (question2Checkbox1.isChecked() && !question2Checkbox2.isChecked() &&
+
+        if (!question2Checkbox1.isChecked() && !question2Checkbox2.isChecked() &&
+                !question2Checkbox3.isChecked() && !question2Checkbox4.isChecked()) {
+            missingAnswer = true;
+        }
+        else if (question2Checkbox1.isChecked() && !question2Checkbox2.isChecked() &&
                 question2Checkbox3.isChecked() && question2Checkbox4.isChecked()) {
             score++;
         }
-        if (question3RadioGroup.getCheckedRadioButtonId() == R.id.question3_radioButton1) {
+
+        if (question3RadioGroup.getCheckedRadioButtonId() == -1) {
+            missingAnswer = true;
+        }
+        else if (question3RadioGroup.getCheckedRadioButtonId() == R.id.question3_radioButton1) {
             score++;
         }
         final String userAnswer4 = question4EditText.getText().toString();
-        if (userAnswer4.equalsIgnoreCase(getResources().getString(R.string.question4_answer))) {
+        if (userAnswer4.isEmpty()) {
+            missingAnswer = true;
+        }
+        else if (userAnswer4.equalsIgnoreCase(getResources().getString(R.string.question4_answer))) {
             score++;
         }
-        setScore(score);
+
+        if (missingAnswer) {
+            Toast.makeText(this, getResources().getString(R.string.not_answered), Toast.LENGTH_SHORT).show();
+        }
+        else {
+            setScore(score);
+        }
     }
 
     private void setScore(int score) {
-        resultTextView.setText(getResources().getString(R.string.result_your_score, score));
+        Toast.makeText(this, getResources().getString(R.string.result_your_score, score), Toast.LENGTH_LONG).show();
     }
 }
